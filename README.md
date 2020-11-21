@@ -1,5 +1,10 @@
 # stock-tracking-backend
 
+```bash
+mvn install
+mvn spring-boot:run
+```
+
 ### Services ###
 ```bash
 http://localhost:8081/stock/list
