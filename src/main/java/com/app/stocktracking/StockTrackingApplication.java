@@ -1,13 +1,13 @@
-package com.dafu.mapserver;
+package com.app.stocktracking;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class MapserverApplication {
+public class StockTrackingApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(MapserverApplication.class, args);
+		SpringApplication.run(StockTrackingApplication.class, args);
 	}
 
 }
