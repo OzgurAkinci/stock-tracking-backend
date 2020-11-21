@@ -1,0 +1,46 @@
+databaseChangeLog:
+  - changeSet:
+      id: 1
+      author: system
+      changes:
+        - insert:
+            tableName: s_role
+            columns:
+              - column:
+                  name: id
+                  valueComputed: nextval('s_role_seq')
+              - column:
+                  name: role_name
+                  value: "SUPER"
+
+  - changeSet:
+      id: 4
+      author: system
+      changes:
+        - insert:
+            tableName: s_user
+            columns:
+              - column:
+                  name: id
+                  valueComputed: nextval('s_user_seq')
+              - column:
+                  name: username
+                  value: "superuser"
+              - column:
+                  name: password
+                  value: "$2a$10$agLHcqDsLeMc91.fCxDo4Oo5dq.k/0YIfQx3.CiPAxYKOTHP/wiXC" #superpassword
+              - column:
+                  name: name
+                  value: "superuser"
+              - column:
+                  name: surname
+                  value:
+              - column:
+                  name: address
+                  value:
+              - column:
+                  name: email
+                  value: "super@user.com"
+              - column:
+                  name: phone
+                  value:
