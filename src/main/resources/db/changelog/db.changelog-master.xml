@@ -1,0 +1,50 @@
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+   http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
+
+    <changeSet id="create_stock_table_seq" author="oakinci">
+        <sql>
+            create sequence stock_id_seq
+            INCREMENT 1
+            MINVALUE  1
+            MAXVALUE 9223372036854775807
+            START 1
+            CACHE 1;
+        </sql>
+    </changeSet>
+
+    <changeSet id="create_stock_table" author="oakinci">
+        <createTable tableName="stock">
+            <column name="id" type="NUMBER">
+                <constraints primaryKey="true" primaryKeyName="PK_S_LANGUAGE_KEYS"/>
+            </column>
+            <column name="product_name" type="varchar(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="stock_code" type="varchar(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="quantity" type="NUMBER" />
+        </createTable>
+
+        <addUniqueConstraint
+                columnNames="stock_code"
+                constraintName="stock_code_uq"
+                tableName="stock"
+        />
+        <addUniqueConstraint
+                columnNames="product_name"
+                constraintName="product_name_uq"
+                tableName="stock"
+        />
+    </changeSet>
+
+    <changeSet id="insert_stock_table_test_data" author="oakinci">
+        <sql>
+            INSERT INTO stock (id, product_name, stock_code, quantity) values (nextval('stock_id_seq'), 'Milk', 'M-101', 184);
+        </sql>
+    </changeSet>
+
+</databaseChangeLog>
